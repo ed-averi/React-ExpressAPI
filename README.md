@@ -6,9 +6,7 @@
 <a href="https://forthebadge.com">
 <img width="25%" height="25" src="https://forthebadge.com/images/badges/powered-by-energy-drinks.svg">
 <a/>
-<a href="https://forthebadge.com">
-<img width="25%" height="25" src="https://forthebadge.com/images/badges/not-a-bug-a-feature.svg">
-<a/>
+
 </p>
 
 <a href="https://www.core-code.io/">
@@ -17,6 +15,60 @@
 
 </a>
 
+## Loading Animation
+
+### React Spinners
+
+### Installation
+
+With npm:
+
+```bash
+npm install --save react-spinners
+```
+
+Usage:
+Each loader has their own default properties. You can overwrite the defaults by passing props into the loaders.
+
+Each loader accepts a <kbd>loading</kbd> prop as a boolean. The loader will render null if loading is <kbd>fals</kbd>.
+
+### Example
+
+```js
+import { useState, CSSProperties } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
+
+function App() {
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
+
+  return (
+    <div className="sweet-loading">
+      <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
+      <input value={color} onChange={(input) => setColor(input.target.value)} placeholder="Color of the loader" />
+
+      <ClipLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+[Source](https://www.npmjs.com/package/react-spinners)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
